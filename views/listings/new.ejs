@@ -1,0 +1,98 @@
+<% layout("/layouts/boilerplate") %>
+
+    
+    <br> 
+    <div class="row">
+          <div class="col-8 offset-2">
+           <h1>Create New Listing</h1>
+           <br>
+    <form action="/listings" method="POST">
+
+        <div class="mb-3">
+            <label for="title" class="from-label">Title :</label>
+            <input 
+                type="text" 
+                name="title" 
+                id="title" 
+                placeholder="enter title"
+                class="form-control"
+            >
+        </div>
+
+        <br>
+
+        <div class="mb-3">
+            <label for="description"class="from-label">Description :</label>
+            <textarea 
+                name="description" 
+                id="description"
+                placeholder="enter description"
+                 class="form-control"
+            ></textarea>
+        </div>
+
+        <br>
+
+        <div class="mb-3">
+            <label for="image"class="from-label">Image URL :</label>
+            <input 
+                type="text" 
+                name="image[url]" 
+                id="image"
+                placeholder="enter image url"
+                 class="form-control"
+            >
+        </div>
+
+        <br>
+        
+        <div class="row">
+        <div class="mb-3 col-md-4">
+            <label for="price"class="from-label">Price :</label>
+            <input 
+                type="number" 
+                name="price" 
+                id="price"
+                placeholder="enter price"
+                class="form-control"
+            >
+        </div>
+
+        <br>
+
+        <div class="mb-3 col-md-8">
+            <label for="location"class="from-label">Location :</label>
+            <input 
+                type="text" 
+                name="location" 
+                id="location"
+                placeholder="enter location"
+                class="form-control"
+            >
+        </div>
+        </div>
+
+
+
+        <br>
+
+        <div class="mb-3">
+            <label for="country"class="from-label">Country :</label>
+            <input 
+                type="text" 
+                name="country" 
+                id="country"
+                placeholder="enter country"
+                class="form-control"
+            >
+        </div>
+
+        <br>
+
+        <button class="btn-dark add-btn">Add</button>
+       <br>   <br>
+    </form>
+    </div>
+     </div>
+
+</body>
