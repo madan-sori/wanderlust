@@ -6,17 +6,19 @@
           <div class="col-8 offset-2">
            <h1>Create New Listing</h1>
            <br>
-    <form action="/listings" method="POST">
+    <form action="/listings" method="POST" novalidate class="needs-validation" enctype="multipart/form-data">
 
         <div class="mb-3">
             <label for="title" class="from-label">Title :</label>
             <input 
                 type="text" 
-                name="title" 
+                name="listing[title]"
                 id="title" 
                 placeholder="enter title"
                 class="form-control"
+                required
             >
+             <div class="valid-feedback"> Title Looks good</div>
         </div>
 
         <br>
@@ -24,23 +26,26 @@
         <div class="mb-3">
             <label for="description"class="from-label">Description :</label>
             <textarea 
-                name="description" 
+                name="listing[description]"
                 id="description"
                 placeholder="enter description"
                  class="form-control"
+                 required
             ></textarea>
+            <div class="invalid-feedback">Please enter a shot description</div>
         </div>
 
         <br>
 
-        <div class="mb-3">
-            <label for="image"class="from-label">Image URL :</label>
+             <div class="mb-3">
+            <label for="image"class="from-label">Upload Listing image :</label>
             <input 
-                type="text" 
-                name="image[url]" 
+                type="file" 
+                name="listing[image]" 
                 id="image"
-                placeholder="enter image url"
+                
                  class="form-control"
+                
             >
         </div>
 
@@ -51,11 +56,13 @@
             <label for="price"class="from-label">Price :</label>
             <input 
                 type="number" 
-                name="price" 
+                name="listing[price]"
                 id="price"
                 placeholder="enter price"
                 class="form-control"
+                required
             >
+            <div class="invalid-feedback">Price should be valid</div>
         </div>
 
         <br>
@@ -64,11 +71,14 @@
             <label for="location"class="from-label">Location :</label>
             <input 
                 type="text" 
-                name="location" 
+                name="listing[location]" 
                 id="location"
                 placeholder="enter location"
                 class="form-control"
+                required
             >
+           
+            <div class="invalid-feedback">Location should be valid</div>
         </div>
         </div>
 
@@ -80,12 +90,16 @@
             <label for="country"class="from-label">Country :</label>
             <input 
                 type="text" 
-                name="country" 
+                name="listing[country]" 
                 id="country"
                 placeholder="enter country"
                 class="form-control"
+                required
             >
+             <div class="invalid-feedback">Country name should be valid</div>
         </div>
+
+       
 
         <br>
 

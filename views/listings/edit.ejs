@@ -7,41 +7,55 @@
 
         <h1>Edit Listing</h1>
 
-        <form action="/listings/<%= listing._id %>?_method=PATCH" method="POST">
+        <form action="/listings/<%= listing._id %>?_method=PATCH" method="POST"novalidate class="needs-validation"enctype="multipart/form-data">
 
             <div class="mb-3">
                 <label for="title" class="form-label">Title :</label>
 
                 <input 
                     type="text" 
-                    name="title" 
+                    name="listing[title]"
                     id="title" 
                     class="form-control"
                     placeholder="enter title"
                     value="<%= listing.title %>"
+                    required
                 >
+                <div class="valid-feedback"> Title Looks good</div>
             </div>
 
             <div class="mb-3">
                 <label for="description" class="form-label">Description :</label>
 
                 <textarea 
-                    name="description" 
+                   name="listing[description]"
                     id="description"
                     class="form-control"
+                    required
                 ><%= listing.description %></textarea>
+
+                <div class="invalid-feedback">Please enter a shot description</div>
+                     
             </div>
-
             <div class="mb-3">
-                <label for="image" class="form-label">Image URL :</label>
-
+                <div>Original listing:</div>
+               <img
+                 src="<%= listing.image.url %>"
+                class="img-fluid"
+               style="height:8rem; width:16rem; object-fit:cover;"
+                >
+            </div>
+             
+            <div class="mb-3">
+                <label for="image" class="form-label">Upload New Img :</label>
                 <input 
-                    type="text" 
-                    name="image[url]" 
+                    type="file" 
+                    name="listing[image]" 
                     id="image"
                     class="form-control"
                     placeholder="enter image url"
                     value="<%= listing.image.url %>"
+                    required
                 >
             </div>
 
@@ -52,12 +66,15 @@
 
                     <input 
                         type="number" 
-                        name="price" 
+                        name="listing[price]" 
                         id="price"
                         class="form-control"
                         placeholder="enter price"
                         value="<%= listing.price %>"
+                        required
                     >
+                     <div class="invalid-feedback">Price should be valid</div>
+
                 </div>
 
                 <div class="mb-3 col-md-8">
@@ -65,12 +82,14 @@
 
                     <input 
                         type="text" 
-                        name="location" 
+                        name="listing[location]" 
                         id="location"
                         class="form-control"
                         placeholder="enter location"
                         value="<%= listing.location %>"
+                        required
                     >
+                    <div class="invalid-feedback">Location should be valid</div>
                 </div>
 
             </div>
@@ -80,12 +99,16 @@
 
                 <input 
                     type="text" 
-                    name="country" 
+                    name="listing[country]"
                     id="country"
                     class="form-control"
                     placeholder="enter country"
                     value="<%= listing.country %>"
+                    required
                 >
+
+                 <div class="invalid-feedback">Country name should be valid</div>
+
             </div>
 
             <button class="btn btn-dark">
